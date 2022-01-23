@@ -6,6 +6,7 @@ protocol GameProtocol
     // Reset our GameObject offscreen
     func Reset()
     
+    // Initialize properties of our Game Objects
     func Start()
     
     // Update will be called every Frame (60 times per second) = 16.666ms

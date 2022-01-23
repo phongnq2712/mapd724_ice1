@@ -1,12 +1,11 @@
-//
-//  GameScene.swift
-//  MAPD724-W2022-ICE1
-//
-//  Created by Tom Tsiliopoulos on 2022-01-12.
-//
-
+import UIKit
+import AVFoundation
 import SpriteKit
 import GameplayKit
+
+let screenSize = UIScreen.main.bounds
+var screenWidth: CGFloat?
+var screenHeight: CGFloat?
 
 class GameScene: SKScene
 {
@@ -15,7 +14,14 @@ class GameScene: SKScene
     var plane: Plane?
     
     override func didMove(to view: SKView) {
+        screenWidth = frame.width
+        screenHeight = frame.height
         
+        name = "Game"
+        ocean = Ocean()
+        ocean?.position = CGPoint(x:0, y:773)
+        addChild(ocean!)
+        // add Plane to the Scence
         plane = Plane()
         plane?.position = CGPoint(x: 0, y: -495)
         addChild(plane!)
@@ -38,11 +44,6 @@ class GameScene: SKScene
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        if let label = self.label
-        {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
@@ -57,8 +58,7 @@ class GameScene: SKScene
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
-    
+        
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         ocean?.Update()

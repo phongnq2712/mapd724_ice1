@@ -1,10 +1,3 @@
-//
-//  GameObject.swift
-//  MAPD724-W2022-ICE1
-//
-//  Created by Phong on 19/01/2022.
-//
-
 import GameplayKit
 import SpriteKit
 
@@ -36,6 +29,7 @@ class GameObject : SKSpriteNode, GameProtocol
         halfHeight = height! * 0.5
         isCollding = false
         name = imageString
+        randomSource = GKARC4RandomSource()
         
     }
     
@@ -44,22 +38,18 @@ class GameObject : SKSpriteNode, GameProtocol
     }
     
     func CheckBounds() {
-        <#code#>
+        
     }
     
     func Reset() {
-        <#code#>
+        
     }
     
     func Start() {
-        <#code#>
+        
     }
     
     func Update() {
-        <#code#>
-    }
-    
-    func TouchMove() {
         
     }
     

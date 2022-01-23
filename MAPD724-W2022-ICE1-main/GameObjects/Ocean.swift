@@ -1,10 +1,3 @@
-//
-//  Ocean.swift
-//  MAPD724-W2022-ICE1
-//
-//  Created by Phong on 19/01/2022.
-//
-
 import GameplayKit
 import SpriteKit
 
@@ -14,17 +7,34 @@ class Ocean: GameObject
     init()
     {
         super.init(imageString: "ocean", initialScale: 2.0)
+        Start()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("has not been implemented")
     }
     
+    override func CheckBounds() {
+        if(position.y <= -773) {
+            Reset()
+        }
+    }
+    
     override func Reset() {
-        position.y = 700
+        position.y = 773
     }
     
     override func Start() {
-        
+        zPosition = 0
+        verticalSpeed = 5.0
+    }
+    
+    override func Update() {
+        Move()
+        CheckBounds()
+    }
+    
+    func Move() {
+        position.y -= verticalSpeed!
     }
 }

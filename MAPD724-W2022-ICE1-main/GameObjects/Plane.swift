@@ -1,10 +1,3 @@
-//
-//  Plane.swift
-//  MAPD724-W2022-ICE1
-//
-//  Created by Phong on 19/01/2022.
-//
-
 import GameplayKit
 import SpriteKit
 
@@ -24,12 +17,12 @@ class Plane : GameObject
     // LifeCycle Functions
     override func CheckBounds() {
         // constrain on the left boundary
-        if(position.x <= -310) {
-            position.x = -310
+        if(position.x <= -250) {
+            position.x = -250
         }
         // constrain on the right boundary
-        if(position.x >= 310) {
-            position.x = 310
+        if(position.x >= 250) {
+            position.x = 250
         }
     }
     
@@ -42,5 +35,8 @@ class Plane : GameObject
         CheckBounds()
     }
     
+    func TouchMove(newPos: CGPoint) {
+        position = newPos
+    }
     
 }
